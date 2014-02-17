@@ -9,6 +9,10 @@ class Db
 	$user="root";
 	$password="";
 	$link=mysqli_connect($host,$user,$password,$dbName);
+        if (!$link) 
+        {
+        die('Ошибка соединения: ' . mysqli_connect_errno());
+        }
 	return $link;
     }
     
@@ -18,9 +22,19 @@ class Db
     }
     
     static function query_db($query) {
-        $link = open_db_connect();
-        $result = mysqli_query($link, $query);
-        return $result;
+        $db = new Db();
+        $link = $db->open_db_connect();
+        if (!mysqli_query($link, "SET a=1"))
+        {
+            echo "Errorcode: ", mysqli_errno($link);
+        }
+        else
+        {
+          $result = mysqli_query($link, $query);  
+          return $result;
+        }
+        
+        
     }
     
 }

@@ -11,7 +11,7 @@ class Db
 	$link=mysqli_connect($host,$user,$password,$dbName);
         if (!$link) 
         {
-        die('Ошибка соединения: ' . mysqli_connect_errno());
+        die("Connection error: " . mysqli_connect_errno());
         }
 	return $link;
     }
@@ -21,10 +21,11 @@ class Db
     mysqli_close($link);
     }
     
-    static function query_db($query) {
+    static function query_db($query) 
+    {
         $db = new Db();
-        $link = $db->open_db_connect();
-        if (!mysqli_query($link, "SET a=1"))
+       $link = $db->open_db_connect();
+        if (!mysqli_query($link, $query))
         {
             echo "Errorcode: ", mysqli_errno($link);
         }
@@ -33,7 +34,7 @@ class Db
           $result = mysqli_query($link, $query);  
           return $result;
         }
-        
+        $db->close_db_connection($link);
         
     }
     

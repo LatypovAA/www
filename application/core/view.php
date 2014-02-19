@@ -4,7 +4,7 @@ class View
 {
     //public $template_view; // здесь можно указать общий вид по умолчанию.
     
-    function generate($content_view, $template_view, $data = null)
+    function generate($content_view, $template_view, $data = null, $title)
     {
         /*
         if(is_array($data)) {
@@ -12,7 +12,7 @@ class View
             extract($data);
         }
         */
-        
         include 'application/views/'.$template_view;
     }
+
 }

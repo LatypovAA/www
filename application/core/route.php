@@ -1,7 +1,6 @@
 <?php
 class Route
 {
-
     static function start()
     {
         // контроллер и действие по умолчанию

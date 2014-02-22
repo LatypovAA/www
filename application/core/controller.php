@@ -5,6 +5,7 @@ class Controller {
     public $model;
     public $view;
     public $session;
+    public $get_url;
             
     function __construct()
     {

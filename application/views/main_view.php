@@ -30,13 +30,3 @@
     $content = ob_get_clean();
     echo $content;
 ?>
-<div class="span8 alert alert-error alertAlign errDisplay" id="nameErr">enter the correct name</div>
-<div class="span8 alert alert-error alertAlign errDisplay" id="textErr">enter the correct message</div>
-
-<form class="span11 formalign " method="post" id="feedback">
-    <input  type="text" class="input_name_magin_bottom" name="name" id="name" placeholder="Enter your name"<?php if (isset($username)) : ?> value="<?php  echo htmlspecialchars($username)?>"> <?php else : ?> > <?php endif; ?>
-    <textarea name="text" id="text"><?php if (isset($msg)) echo htmlspecialchars($msg) ?></textarea>
-    <button  type="submit" class="btn" name="action" value="add" id="send">submit</button>
-    <button  type="submit" class="btn pull-right" name="actionDel" value="delete" id="delAllMess">delete ALL !!!</button>
-</form>
-<button style="display:none" value="<?php echo date("h:i:s D F Y"); ?>" id="date">dateForJs</button>

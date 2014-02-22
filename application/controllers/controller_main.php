@@ -6,9 +6,15 @@ class Controller_Main extends Controller
         $this->view = new View();
         $this->session = new App_Session_User();
     }
-            function action_index()
-    {   App_Session::start();
+    function action_index()
+    {   
+        App_Session::start();
         $data = $this->model->get_data();
         $this->view->generate('main_view.php', 'tamplate_view.php', $data, 'Guest book');
+    }
+    function action_ajax()
+    {
+        App_Session::start();
+        $this->model->ajax_response();
     }
 }
